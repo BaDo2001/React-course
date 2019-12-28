@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://balint_dolla:TKnE5rioZcueAsCN@contactkeeper-awqr2.mongodb.net/test?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://balint_dolla:TKnE5rioZcueAsCN@contactkeeper-awqr2.mongodb.net/test?retryWrites=true&w=majority",
+    "jwtSecret": "secret"
 }
