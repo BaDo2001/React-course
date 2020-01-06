@@ -29,3 +29,5 @@ yarn-error.log*
 
 #Build folder
 build
+
+/Contact_Keeper/client/build/
