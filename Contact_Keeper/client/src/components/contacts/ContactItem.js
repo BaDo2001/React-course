@@ -9,7 +9,7 @@ const ContactItem = ({ contact }) => {
 	const { id, name, email, phone, type } = contact;
 
 	const onDelete = () => {
-		if (current.id === id) clearCurrent();
+		if (current && current.id === id) clearCurrent();
 		deleteContact(id);
 	};
 
