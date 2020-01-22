@@ -16,22 +16,14 @@ const Contacts = () => {
 		<Fragment>
 			<TransitionGroup>
 				{filtered !== null
-					? filtered.map(contact => (
-							<CSSTransition
-								key={contact.id}
-								timeout={500}
-								classNames="item"
-							>
-								<ContactItem key={contact.id} contact={contact} />
+					? filtered.map((contact) => (
+							<CSSTransition key={contact._id} timeout={500} classNames="item">
+								<ContactItem key={contact._id} contact={contact} />
 							</CSSTransition>
 					  ))
-					: contacts.map(contact => (
-							<CSSTransition
-								key={contact.id}
-								timeout={500}
-								classNames="item"
-							>
-								<ContactItem key={contact.id} contact={contact} />
+					: contacts.map((contact) => (
+							<CSSTransition key={contact._id} timeout={500} classNames="item">
+								<ContactItem key={contact._id} contact={contact} />
 							</CSSTransition>
 					  ))}
 			</TransitionGroup>
