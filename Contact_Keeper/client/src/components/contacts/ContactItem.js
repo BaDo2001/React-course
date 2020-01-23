@@ -4,13 +4,13 @@ import ContactContext from "../../context/contact/ContactContext";
 
 const ContactItem = ({ contact }) => {
 	const contactContext = useContext(ContactContext);
-	const { deleteContact, setCurrent, clearCurrent, current } = contactContext;
+	const { deleteContact, setCurrent, clearCurrent } = contactContext;
 
-	const { id, name, email, phone, type } = contact;
+	const { _id, name, email, phone, type } = contact;
 
 	const onDelete = () => {
-		if (current && current.id === id) clearCurrent();
-		deleteContact(id);
+		deleteContact(_id);
+		clearCurrent();
 	};
 
 	return (
@@ -19,10 +19,7 @@ const ContactItem = ({ contact }) => {
 				{name}{" "}
 				<span
 					style={{ float: "right" }}
-					className={
-						"badge " +
-						(type === "professional" ? "badge-success" : "badge-primary")
-					}
+					className={"badge " + (type === "professional" ? "badge-success" : "badge-primary")}
 				>
 					{type.charAt(0).toUpperCase() + type.slice(1)}
 				</span>{" "}
@@ -40,10 +37,7 @@ const ContactItem = ({ contact }) => {
 				)}
 			</ul>
 			<p>
-				<button
-					className="btn btn-dark btn-sm"
-					onClick={() => setCurrent(contact)}
-				>
+				<button className="btn btn-dark btn-sm" onClick={() => setCurrent(contact)}>
 					Edit
 				</button>
 				<button className="btn btn-danger btn-sm" onClick={onDelete}>

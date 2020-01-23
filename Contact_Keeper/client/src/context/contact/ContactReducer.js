@@ -30,7 +30,7 @@ export default (state, action) => {
 		case ADD_CONTACT:
 			return {
 				...state,
-				contacts: [...state.contacts, action.payload],
+				contacts: [action.payload, ...state.contacts],
 				loading: false
 			};
 		case CONTACT_ERROR:
@@ -42,7 +42,7 @@ export default (state, action) => {
 			return {
 				...state,
 				loading: false,
-				contacts: state.contacts.filter((contact) => contact.id !== action.payload)
+				contacts: state.contacts.filter((contact) => contact._id !== action.payload)
 			};
 		case SET_CURRENT:
 			return {
@@ -59,7 +59,7 @@ export default (state, action) => {
 				...state,
 				loading: false,
 				contacts: state.contacts.map((contact) =>
-					contact.id === action.payload.id ? action.payload : contact
+					contact._id === action.payload._id ? action.payload : contact
 				)
 			};
 		case FILTER_CONTACTS:
